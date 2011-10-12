@@ -1,0 +1,20 @@
+<% if @user.best_user_twins %>
+    <% for x in 1..9 %>
+        <% twins = @user.user_twins_by_level(x)
+           kind = x%2 == 0 ? "even" : "odd"
+        %>
+
+        <%= content_tag :div, :class => "mtr-image-#{kind} mtr-image" do %>
+            <%= x %>
+        <% end %>
+        <%= content_tag :div, :class => "mtr-line-#{kind} mtr-line" do %>
+            <%= link_to twins.count, :controller => :twins, :level => x if twins %>
+        <% end %>
+    <% end %>
+
+    <% if @user.twins_updated_at %>
+        updated <%= time_ago_in_words(@user.twins_updated_at) %> ago
+    <% else %>
+        Twin haven't been updated yet
+    <% end %>
+<% end %>

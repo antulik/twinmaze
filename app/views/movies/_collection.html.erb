@@ -1,0 +1,31 @@
+<% if @movies %>
+    <% if params[:view].to_s.eql? 'list' %>
+        <div class="content_box">
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>Year</th>
+              <th>Description</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+
+            <% @movies.each do |movie| %>
+                <tr>
+                  <td><%= link_to movie.title.force_encoding('utf-8'), movie %></td>
+                  <td><%= movie.year %></td>
+                  <!--<td>< %= movie.description.force_encoding('utf-8') if movie.description %></td>-->
+                </tr>
+            <% end %>
+          </table>
+        </div>
+    <% elsif params[:view].to_s.eql? 'line' %>
+        <%= render "movies/line" %>
+    <% else %>
+        <% @movies.each do |movie|
+            @movie = movie %>
+            <%= render "movies/card" %>
+        <% end %>
+    <% end %>
+<% end %>

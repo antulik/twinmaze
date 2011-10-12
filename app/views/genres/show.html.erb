@@ -1,0 +1,36 @@
+<% render 'movies/filter' %>
+
+<div class="width_normal">
+  <div class="content_box">
+    <p id="notice"><%= notice %></p>
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          Genre:
+          <br/>
+          <b>Name:</b>
+          <%= @genre.name %>
+          <br/>
+        </td>
+        <%= yield :filter %>
+      </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Edit', edit_genre_path(@genre) if is_admin? %>
+  </div>
+
+
+  <div id="movies">
+    <div id="navigation">
+      <div class="nav_left">
+        <%= will_paginate(@movies) if @movies %>
+      </div>
+
+      <div class="nav_right">
+      </div>
+    </div>
+    
+    <%= render 'movies/collection' %>
+  </div>
+</div>

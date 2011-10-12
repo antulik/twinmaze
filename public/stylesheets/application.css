@@ -1,0 +1,160 @@
+html {
+    height : 100%;
+}
+
+body {
+/*text-align:center;*/
+    margin      : 0px;
+    padding     : 0px;
+    height      : 100%; /*background:#FFF;*/
+    font-family : Arial, Helvetica, sans-serif; /*background  : #DDD; *//*font-size:12px;*/
+}
+
+a img {
+    border : none;
+}
+
+a {
+    color           : #0033CC;
+    text-decoration : none;
+}
+
+.clear {
+    clear    : both;
+    height   : 0;
+    overflow : hidden;
+}
+
+#container {
+    width    : 75%;
+    margin   : 0 auto; /*background-color : #FFF;*/
+    padding  : 20px 40px;
+    overflow : hidden; /*'border: solid 1px black; margin-top : 20 px;*/
+}
+
+#flash_notice, #flash_error, #flash_alert {
+    padding : 5px 8px;
+    margin  : 10px 0;
+}
+
+#flash_notice {
+    background-color : #CFC;
+    border           : solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+    background-color : #FCC;
+    border           : solid 1px #C66;
+}
+
+.fieldWithErrors {
+    display : inline;
+}
+
+.border-shadow {
+    box-shadow : 0 0 4px #666666;
+}
+
+.error_messages {
+    width            : 400px;
+    border           : 2px solid #CF0000;
+    padding          : 0px;
+    padding-bottom   : 12px;
+    margin-bottom    : 20px;
+    background-color : #f0f0f0;
+    font-size        : 12px;
+}
+
+.error_messages h2 {
+    text-align       : left;
+    font-weight      : bold;
+    padding          : 5px 10px;
+    font-size        : 12px;
+    margin           : 0;
+    background-color : #c00;
+    color            : #fff;
+}
+
+.error_messages p {
+    margin : 8px 10px;
+}
+
+.error_messages ul {
+    margin : 0;
+}
+
+body {
+    margin  : 0;
+    padding : 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, del,
+dfn, em, font, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, dl, dt, dd,
+ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border         : 0 none;
+    font-family    : inherit; /*font-size: 100%;*/
+    font-style     : inherit; /*font-weight: inherit;*/
+    margin         : 0;
+    outline        : 0 none;
+    padding        : 0;
+    vertical-align : baseline;
+}
+
+#container, #header_container, #footer_container {
+    width   : auto;
+    margin  : 0;
+    padding : 0;
+}
+
+#header_container {
+    width         : 100%;
+    margin-top    : 0px;
+    background    : #FFF;
+    text-align    : center;
+    border-bottom : 1px solid #999;
+}
+
+.content_box {
+    background : #FFF;
+    margin     : 10px;
+    padding    : 10px;
+    box-shadow : 0 0 4px #666666;
+}
+
+#container {
+    background  : #FFFFFF;
+}
+
+#about {
+    left       : 185px;
+    min-height : 200px;
+    position   : absolute;
+    top        : 0;
+    width      : 665px;
+    z-index    : 10;
+}
+
+#navigation {
+    border-bottom : 1px solid #cccccc;
+    line-height   : 23px;
+    overflow      : hidden;
+    padding       : 0 15px;
+}
+
+.nav_left {
+    float : left;
+}
+
+.nav_right {
+    float : right;
+}
+
+.width_normal {
+    margin   : 0 auto;
+    overflow : visible;
+    width    : 900px;
+}

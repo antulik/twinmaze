@@ -1,0 +1,69 @@
+<% @movies.each_with_index do |movie, x| %>
+    <% pr = movie.personal_rating(current_user)
+       user_vote = movie.rating(current_user)
+       best_rating = (pr.best_rating if pr) || 0
+       general_rating = (movie.votes_rating if movie.votes_rating) || 0
+
+       twin_rating = movie.user_vote(@twin)
+    %>
+
+
+
+    <% kind = x%2 ==0 ? "even" : "odd" %>
+
+    <%= content_tag :div, :class => "ml-image-#{kind} ml-image" do %>
+        <div class="poster_container">
+          <%= link_to movie do %>
+
+              <%= image_tag movie.image_url || "", :class => "poster" if movie.image_url %>
+          <% end %>
+          <div class="movie-card-poster-over">
+
+            <div class="movie-card-poster-over rating">
+              <%= render :partial => 'user_votes/rating_small_tag',
+                         :locals => {:type => :vote, :user_vote => user_vote,
+                                     :movie_id => movie.id}
+              %>
+            </div>
+
+          </div>
+        </div>
+    <% end %>
+    <%= content_tag :div, :class => "ml-line-#{kind} ml-line" do %>
+
+        <div class="movie-line-top-rating">
+          <table class="movie-card-top-rating">
+            <tbody>
+            <tr>
+              <td>T</td>
+              <td class="<%= rating_to_css(best_rating) %>">
+                <%= "%0.1f" % best_rating %></td>
+            </tr>
+
+            <tr>
+              <td>G</td>
+              <td class="<%= rating_to_css(general_rating) %>">
+                <%= "%0.1f" % general_rating %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <%= link_to movie do %>
+            <%= movie.title.force_encoding('utf-8') %>
+            <%= "(" + movie.year.to_s + ")" if movie.year %>
+            <%= twin_rating.rating if twin_rating %>
+        <% end %>
+        <br/>
+        <%= "#{movie.runtime} minutes" if movie.runtime %> <br/>
+        <% if movie.genres.size > 0 %>
+            <% movie.genres.each_with_index do |g, i| %>
+                <%= link_to h(g.name), g %><%= ', ' if i < movie.genres.size - 1 %>
+            <% end %>
+            <br/>
+        <% end %>
+
+    <% end %>
+
+<% end %>
+ 

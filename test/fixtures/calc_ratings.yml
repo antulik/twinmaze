@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 
+  movie_id: 
+  votes_count: 
+  r10: 
+  r9: 
+  r8: 
+  r7: 
+  r6: 
+  r5: 
+  r4: 
+  r3: 
+  r2: 
+  r1: 
+
+two:
+  user_id: 
+  movie_id: 
+  votes_count: 
+  r10: 
+  r9: 
+  r8: 
+  r7: 
+  r6: 
+  r5: 
+  r4: 
+  r3: 
+  r2: 
+  r1: 

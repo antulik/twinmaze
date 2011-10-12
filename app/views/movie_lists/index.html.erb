@@ -1,0 +1,35 @@
+<div class="width_normal">
+  <%= render 'filter' %>
+
+  <div class="content_box">
+    <h1>Listing movie_lists</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>User</th>
+        <th>Is open</th>
+        <th>To approve</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% @movie_lists.each do |movie_list| %>
+          <% continue if not movie_list %>
+          <tr>
+            <td><%= link_to movie_list.name, movie_list %></td>
+            <td><%= movie_list.user.username if movie_list.user %></td>
+            <td><%= movie_list.is_opened %></td>
+            <td><%= movie_list.to_approve %></td>
+            <td></td>
+            <td><%= link_to 'Edit', edit_movie_list_path(movie_list) %></td>
+            <td><%= link_to 'Destroy', movie_list, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+
+    <br/>
+
+    <%= link_to 'New Movie list', new_movie_list_path %>
+  </div>
+</div>

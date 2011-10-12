@@ -1,0 +1,2 @@
+module ExTmdbMoviesHelper
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  twin_id: 1
+  rating: 1
+  percent: 1
+  movies_matched: 1
+
+two:
+  user_id: 1
+  twin_id: 1
+  rating: 1
+  percent: 1
+  movies_matched: 1

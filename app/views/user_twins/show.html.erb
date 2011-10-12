@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_twin.user_id %>
+</p>
+
+<p>
+  <b>Twin:</b>
+  <%= @user_twin.twin_id %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @user_twin.rating %>
+</p>
+
+<p>
+  <b>Percent:</b>
+  <%= @user_twin.percent %>
+</p>
+
+<p>
+  <b>Movies matched:</b>
+  <%= @user_twin.movies_matched %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_twin_path(@user_twin) %> |
+<%= link_to 'Back', user_twins_path %>

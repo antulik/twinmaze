@@ -1,0 +1,48 @@
+<% content_for :filter do %>
+    <td>
+      Your status type:
+      <br/><%= filter_link params, 'Watched', :k, 'watched', true %>
+      <br/><%= filter_link params, 'Unwatched', :k, 'unwatched', true %>
+      <br/><%= filter_link params, 'All', :k, 'all' %>
+    </td>
+    <td>Sort by:
+      <br/><%= filter_link params, 'Recommended', :sort, 'recommended', true %>
+      <br/><%= filter_link params, 'Global Rating', :sort, 'global_rating' %>
+      <br/><%= filter_link params, 'Global Popularity', :sort, 'global_popularity' %>
+      <br/><%= filter_link params, 'Twin Popularity', :sort, 'twin_popularity', true %>
+      <br/><%= filter_link params, 'Twin Rating', :sort, 'twin_rating', true %>
+      <br/><%= filter_link params, 'Year', :sort, 'year' %>
+      <br/><%= filter_link params, 'Name', :sort, 'name' %>
+    </td>
+    <td>View:
+      <br/><%= filter_link params, 'Posters', :view, 'poster' %>
+      <br/><%= filter_link params, 'List', :view, 'list' %>
+      <br/><%= filter_link params, 'Line', :view, 'line' %>
+    </td>
+    <td>
+      Per page:
+      <br/><%= filter_link params, '20', :per_page, '20' %>
+      <br/><%= filter_link params, '40', :per_page, '40' %>
+      <br/><%= filter_link params, '100', :per_page, '100' %>
+      <br/><%= filter_link params, '200', :per_page, '200' %>
+    </td>
+
+    <td>
+      Max Duration:
+      <br/><%= filter_link params, 'All', :runtime, 'all' %>
+      <br/><%= filter_link params, '30 min', :runtime, '30' %>
+      <br/><%= filter_link params, '60 min', :runtime, '60' %>
+      <br/><%= filter_link params, '90 min', :runtime, '90' %>
+      <br/><%= filter_link params, '120 min', :runtime, '120' %>
+    </td>
+
+    <td>
+      Years:
+      <br/><%= filter_link params, 'All', :years, 'all' %>
+      <br/><%= filter_link params, 'A Year', :years, 'year' %>
+      <br/><%= filter_link params, 'Three Years', :years, 'three_years' %>
+      <br/><%= filter_link params, 'Five Years', :years, 'five_years' %>
+      <br/><%= filter_link params, 'A Decade', :years, 'decade' %>
+      <br/><%= filter_link params, 'Two Decades', :years, 'two_decades' %>
+    </td>
+<% end %>

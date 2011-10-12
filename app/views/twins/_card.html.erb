@@ -1,0 +1,22 @@
+<% if twin %>
+    <div class="twin-card">
+
+      <table>
+        <tbody>
+        <tr>
+          <td><%= twin.level %></td>
+          <td><%= link_to "%0.1f%%" % twin.percent, ratings_twin_path(twin.twin, :k => 'unwatched') %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="username">
+            <%= link_to twin.twin.username, twin_path(twin.twin) %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to twin.movies_matched, ratings_twin_path(twin.twin, :k => 'watched')%></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+<% end %>

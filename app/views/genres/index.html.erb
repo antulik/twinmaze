@@ -1,0 +1,39 @@
+<div class="width_normal">
+  <%= render 'movies/filter' %>
+
+  <div class="content_box">
+    <h2>Genres</h2>
+    <table>
+
+      <% columns = 8 %>
+      <% per_col = (@genres.size.to_f / columns).ceil %>
+
+      <% for i in 0...per_col %>
+          <tr>
+            <% for a in 0...columns %>
+                <% b = i + per_col*a %>
+                <td>
+                  <!--< %= link_to @genres[b].name, @genres[b]  if b < @genres.size %>-->
+                  <%= filter_link params, @genres[b].name, :genre, @genres[b].name if b < @genres.size %>
+                </td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+
+    <%= link_to 'New Genre', new_genre_path if is_admin? %>
+  </div>
+
+  <div id="movies">
+    <div id="navigation">
+      <div class="nav_left">
+        <%= will_paginate(@movies) if @movies %>
+      </div>
+
+      <div class="nav_right">
+      </div>
+    </div>
+
+    <%= render 'movies/collection' %>
+  </div>
+</div>

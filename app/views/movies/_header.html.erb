@@ -1,0 +1,16 @@
+<div class="width_normal">
+
+  <%= render 'filter' %>
+  <%= render 'movies/admin' %>
+
+  <div id="navigation">
+    <div class="nav_left">
+      <%= will_paginate(@movies) if @movies %>
+    </div>
+
+    <div class="nav_right">
+    </div>
+  </div>
+</div>
+
+<%= yield :movies %>

@@ -1,0 +1,50 @@
+<% content_for :content do %>
+    <div class="width_normal">
+
+      <div id="filter" class="content_box">
+        <table>
+          <tr>
+            <td>
+              Where:
+              <br/><%= filter_link_type params, 'Movies', :movies %>
+              <br/><%= filter_link_type params, 'Twins', :twins %>
+              <br/><%= filter_link_type params, 'Movie Lists', :movie_lists %>
+              <br/>Actors
+              <br/><%= filter_link_type params, 'Genres', :genres %>
+              <br/>Studios
+            </td>
+            <%= yield :filter %>
+
+            <script type="text/javascript" language="javascript">
+
+                function prompt_box() {
+                    var name = prompt("Please enter the name");
+                    if (name != null && name != "") {
+                        jQuery('#search_name')[0].value = name
+//              $(this.form).trigger('submit.rails')
+                        this.form.submit();
+                    }
+
+                }
+            </script>
+
+            <% if is_admin? and false %>
+                <td>
+                  <% if params[:search_name] %>
+                      <%= button_to "delete search", params.merge(:controller => :search, :action => :delete, :method => :post) %>
+                  <% else %>
+                      <%= form_tag(params.merge(:controller => :search, :action => :save, :method => :post)) do %>
+                          <%= hidden_field_tag :search_name, params[:search_name] %>
+                          <%= submit_tag "save search", :onclick => "prompt_box()" %>
+                      <% end %>
+                  <% end %>
+                </td>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <%= yield %>
+<% end %>
+<%= render :file => 'layouts/application' %>

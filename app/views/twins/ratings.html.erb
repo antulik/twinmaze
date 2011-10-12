@@ -1,0 +1,34 @@
+<% render 'movies/filter' %>
+
+<div class="width_normal">
+  <div class="content_box">
+    <p id="notice"><%= notice %></p>
+    <table>
+      <tbody>
+      <tr>
+        <% if @user != current_user %>
+            <td>
+              Twin:<%= link_to @user.username, twin_path(@user) %>
+              <br/><%= filter_link params, 'Watched', :k_2, 'watched' %>
+              <br/>Unwatched
+            </td>
+        <% end %>
+        <%= yield :filter %>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="movies">
+    <div id="navigation">
+      <div class="nav_left">
+        <%= will_paginate(@movies) if @movies %>
+      </div>
+
+      <div class="nav_right">
+      </div>
+    </div>
+
+    <%= render :partial => 'movies/collection' %>
+  </div>
+</div>

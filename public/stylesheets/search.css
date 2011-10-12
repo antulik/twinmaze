@@ -1,0 +1,12 @@
+#filter.content_box {
+    
+}
+
+.content_box table {
+    width: 100%;
+}
+
+
+.content_box td {
+    /*padding-right: 20px;*/
+}

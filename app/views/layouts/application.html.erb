@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{yield :title} - " if content_for?(:title) %>TwinMaze</title>
+
+  <meta name="description" content="<%= yield(:description) %>" >
+  <meta name="keywords" content="<%= yield(:keywords) %>" >
+
+
+
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= javascript_include_tag 'jquery.rating-cancelfix' %>
+  <%= javascript_include_tag 'jquery.MetaData' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'my' %>
+
+
+  <%= csrf_meta_tag %>
+
+
+</head>
+<body>
+
+
+<div id="header_container">
+  <div id="header">
+    <div id="header_top">
+
+
+      <a href="/" title="Home" id="header_logo">
+        <span>Twin<b>Maze</b></span>
+      </a>
+
+      <div id="header_account">
+        <% if logged_in? %>
+            Logged in as <%= link_to current_user.username, edit_current_user_path %>
+            <%= link_to "Sign Out", logout_path, :class=>"yt-uix-button-content" %>
+        <% else %>
+            <%= link_to "Create Account", signup_url %>
+            <%= link_to "Sign In", login_url, :class => "yt-uix-button-content" %>
+        <% end %>
+      </div>
+
+      <%= form_tag search_path, :method => 'get', :id => "header_search", :params => params do %>
+
+          <%= text_field_tag :search, params[:search], :id => "header_search_bar" %>
+          <%= submit_tag "Search", :name => nil %>
+
+          <%= hidden_field_tag(:k, params[:k]) %>
+          <%= hidden_field_tag(:sort, params[:sort]) %>
+          <%= hidden_field_tag(:view, params[:view]) %>
+          <%= hidden_field_tag(:where, params[:controller]) %>
+
+          <%= hidden_field_tag(:years, params[:years]) %>
+          <%= hidden_field_tag(:per_page, params[:per_page]) %>
+
+          <br/>
+      <% end %>
+    </div>
+
+    <div id="header_bottom">
+      <div id="main_menu">
+
+        <%= navigation_link_filter(params, my_profile_path, 'profile') %>
+        <%= navigation_link_filter(params, {:action => :index, :controller => :movies}, 'movies') %>
+        <%= navigation_link_filter(params, {:action => :index, :controller => :twins}, 'twins') %>
+        <%= navigation_link_filter(params, {:action => :index, :controller => :movie_lists}, 'lists') %>
+        <%= navigation_link_filter(params, {:action => :index, :controller => :genres}, 'genres') %>
+
+
+        <% if logged_in? and current_user.searches and current_user.searches.is_a?(Array) %>
+            <% current_user.searches.each do |search| %>
+                <%= link_to search do %>
+                    <div class="menu_button">
+
+                    </div>
+
+                <% end %>
+            <% end %>
+        <% end %>
+      </div>
+
+      <% if logged_in? %>
+          <div style="float:right">
+            <% if not current_user.personal_ratings_updated_at or
+                    (not current_user.personal_ratings_started_at and current_user.personal_ratings_updated_at) or
+                    (current_user.personal_ratings_started_at < current_user.personal_ratings_updated_at and
+                            current_user.personal_ratings_updated_at < 3.minutes.ago) %>
+                Maze shifted, please
+                <%= link_to "update", solve_maze_path %>
+            <% elsif current_user.personal_ratings_started_at > current_user.personal_ratings_updated_at or
+                    (current_user.personal_ratings_started_at and not current_user.personal_ratings_updated_at) %>
+                <!-- update finished -->
+                Solving maze...
+            <% else %>
+                Your maze was updated <%= time_ago_in_words(current_user.personal_ratings_updated_at) %> ago
+            <% end %>
+          </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="container">
+  <div id="alerts" style="">
+    <%= alert if alert %>
+  </div>
+  <%= content_for?(:content) ? yield(:content) : yield %>
+</div>
+
+<!--<div id="footer_container">
+<div id="footer">
+<div class="bgl">
+<div class="bgr">
+Powered by Bacon and Green Tea &copy; 2011 Magic Wizard
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  popularity: 1
+  name: MyString
+  also_known_as: MyString
+  biography: MyText
+
+two:
+  popularity: 1
+  name: MyString
+  also_known_as: MyString
+  biography: MyText

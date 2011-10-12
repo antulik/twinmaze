@@ -1,0 +1,44 @@
+<% render 'movies/filter' %>
+
+<div class="width_normal">
+  <div class="content_box">
+    <p id="notice"><%= notice %></p>
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          List:
+          <br/>
+          <b>Name:</b>
+          <%= @movie_list.name %>
+          <br/>
+          <b>User:</b>
+          <%= @movie_list.user_id %>
+          <br/>
+          <b>Is open:</b>
+          <%= @movie_list.is_opened %>
+          <br/>
+          <b>To approve:</b>
+          <%= @movie_list.to_approve %>
+        </td>
+        <%= yield :filter %>
+      </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Edit', edit_movie_list_path(@movie_list) if is_admin? %> |
+  </div>
+
+
+  <div id="movies">
+    <div id="navigation">
+      <div class="nav_left">
+        <%= will_paginate(@movies) if @movies %>
+      </div>
+
+      <div class="nav_right">
+      </div>
+    </div>
+    
+    <%= render 'movies/collection' %>
+  </div>
+</div>

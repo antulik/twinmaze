@@ -1,0 +1,31 @@
+<div class="width_normal">
+
+  <% if is_admin? %>
+      <div id="admin_filter" class="content_box">
+        <table>
+          <tr>
+            <% if params[:controller].to_s == :movies.to_s %>
+                <td>
+
+                  <%= link_to 'New Movie', new_movie_path %>
+                  <br/>
+                  <%= link_to "Update TMDB for these movies",
+                              params.merge(:controller => :admin, :action => :update_tmdb,
+                                           :method => :post) %>
+                  <br/>
+                  <%= link_to "Auto Sync TMDB",
+                              params.merge(:controller => :admin, :action => :auto_sync_tmdb,
+                                           :method => :post) %>
+                  <br/>
+                  <%= link_to "Auto YouTube",
+                              params.merge(:controller => :admin, :action => :sync_youtube_trailer,
+                                           :method => :post) %>
+
+
+                </td>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<h1>Listing personal_ratings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @personal_ratings.each do |personal_rating| %>
+  <tr>
+    <td><%= link_to 'Show', personal_rating %></td>
+    <td><%= link_to 'Edit', edit_personal_rating_path(personal_rating) %></td>
+    <td><%= link_to 'Destroy', personal_rating, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Personal rating', new_personal_rating_path %>

@@ -1,0 +1,41 @@
+<%
+   general_rating = @movie.votes_rating || 0
+   user_rating = @user_vote.rating || 0
+%>
+
+<div class="movie-rating">
+  <table class="movie-rating">
+    <tbody>
+    <tr class="">
+      <td class="movie-rating-type <%= rating_to_css(@pr.best_rating) if @pr %>">T</td>
+      <td class="movie-rating-rating <%= rating_to_css(@pr.best_rating) if @pr %>">
+        <%= "%0.1f"% @pr.best_rating if @pr%>
+      </td>
+      <td class="movie-rating-bar">
+        <%= render :partial => 'user_votes/rating_small_tag',
+                   :locals => {:type => :twin, :movie_id => @movie.id, :personal_rating => @pr} %>
+      </td>
+    </tr>
+    <tr class="" >
+      <td class="movie-rating-type <%= rating_to_css(general_rating) %>">G</td>
+      <td class="movie-rating-rating  <%= rating_to_css(general_rating) %>">
+        <%= "%0.1f" % general_rating %>
+      </td>
+      <td class="movie-rating-bar">
+        <%= render :partial => 'user_votes/rating_small_tag',
+                   :locals => {:type => :global, :movie_id => @movie.id, :movie => @movie} %>
+      </td>
+    </tr>
+    <tr class="">
+      <td class="movie-rating-type <%= rating_to_css(user_rating) %>">Y</td>
+      <td class="movie-rating-rating <%= rating_to_css(user_rating) %>">
+        <%= "%0.1f" % user_rating %>
+      </td>
+      <td class="movie-rating-bar">
+        <%= render :partial => 'user_votes/rating_small_tag',
+                   :locals => {:type => :vote, :movie_id => @movie.id, :user_vote => @user_vote} %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

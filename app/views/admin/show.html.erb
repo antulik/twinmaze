@@ -1,0 +1,25 @@
+<div class="width_normal">
+  <% if is_admin? %>
+      <h1>Admin#show</h1>
+      <%= button_to "Update web statistic for all movies",
+                    :controller => :admin, :action => :update_all_web_stats,
+                    :method => :post %>
+
+
+      <br/>
+      <%= Movie.maximum(:tmdb_id) %> max tmdb id
+
+      <%= form_tag :action => :update_manual_tmdb, :method => :post do %>
+        <%= label_tag :from, "From:" %>
+        <%= text_field_tag :from %>
+
+        <%= label_tag :to, "To:" %>
+        <%= text_field_tag :to %>
+
+        <%= submit_tag "Sync to tmdb" %>
+      <% end %>
+  <% end %>
+</div>
+
+
+

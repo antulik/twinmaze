@@ -1,0 +1,96 @@
+#header, #footer {
+    width  : 900px;
+    margin : 0 auto;
+
+}
+
+#header_top {
+    padding-top    : 9px;
+    padding-bottom : 1px;
+    margin         : 0 auto;
+}
+
+#header_search {
+    overflow    : hidden;
+    padding-top : 8px;
+
+}
+
+#header_search_bar {
+    width : 80%;
+}
+
+#header_search button {
+    width : 100%;
+}
+
+#header_account {
+    float      : right;
+    text-align : right;
+    margin-top : 9px;
+}
+
+#header_logo {
+    float  : left;
+    margin : 2px 10px 0 0;
+    height : 40px;
+}
+
+#header_logo span {
+    color     : black;
+    font-size : 28px;
+}
+
+#main_menu {
+    margin : 0 auto;
+    width  : 400px;
+    text-align:center;
+}
+
+#main_menu a {
+    float:left;
+    position:relative;
+    margin           : 10px;
+
+}
+
+#header_bottom {
+    margin-bottom     : 5px;
+    padding-bottom: 55px;
+}
+
+.menu_button {
+    padding          : 13px;
+    border           : black 2px solid;
+    background-color : #7fffd4;
+    width            : 10px;
+    height           : 10px;
+}
+
+.menu_button_selected {
+    background-color : #00bfff;
+}
+
+.menu_button:hover, .menu_button_selected:hover {
+    background-color : orange;
+}
+
+#footer_container {
+    bottom   : 0;
+    position : fixed;
+}
+
+.filter_link_active {
+    padding: 0 5px 0 5px;
+}
+
+.filter_link_active, .filter_link:hover {
+    /*background: #c5e2ff;*/
+    background: #483d8b;
+    /*background: white;*/
+    color:white;
+}
+
+
+
+

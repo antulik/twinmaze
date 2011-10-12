@@ -1,0 +1,15 @@
+<% if @p_r %>
+    <% for x in 1..9 %>
+        <% kind = x%2 == 0 ? "even" : "odd"
+           rating, votes = @p_r.get_rating_and_votes_by_level(x)
+           color = PersonalRatingsHelper.get_color_by_level_and_rating(x, rating)
+        %>
+
+        <%= content_tag :div, :class => "mtr-image-#{kind} mtr-image", :style => "background-color:#{color}" do %>
+            <%= votes %>
+        <% end %>
+        <%= content_tag :div, :class => "mtr-line-#{kind} mtr-line", :style => "background-color:#{color}" do %>
+            <%= RatingHelper.rating_to_string(rating) %>
+        <% end %>
+    <% end %>
+<% end %>

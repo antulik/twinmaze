@@ -1,0 +1,31 @@
+#login_block {
+    width  : 175px;
+    margin : 40px auto;
+}
+
+#login_image span {
+    font-size   : 140px;
+    display     : block;
+    text-align  : center;
+    padding-top : 5px;
+    opacity     : 0.5;
+    color       : white;
+}
+
+#login_image {
+    width            : 175px;
+    height           : 175px;
+    background-color : #6495ed;
+    margin           : auto;
+    border           : 3px solid black;
+}
+
+#login_block input[type="text"],
+#login_block input[type="password"] {
+    width : 100%;
+}
+
+#login_block input[type="submit"]{
+    margin-top:5px;
+    width:50%;
+}

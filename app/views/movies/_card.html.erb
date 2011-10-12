@@ -1,0 +1,57 @@
+<% pr = @movie.personal_rating(current_user)
+   user_vote = @movie.rating(current_user)
+   best_rating = (pr.best_rating if pr) || 0
+   general_rating = (@movie.votes_rating if @movie.votes_rating) || 0
+
+   twin_rating = @movie.user_vote(@twin) 
+%>
+<div class="movie-card">
+
+  <div class="movie-card-top content_box">
+    <div class="movie-card-top-rating">
+      <table class="movie-card-top-rating">
+        <tbody>
+        <tr>
+          <td>T</td>
+          <td class="<%= rating_to_css(best_rating) %>">
+            <%= "%0.1f" % best_rating %></td>
+        </tr>
+
+        <tr>
+          <td>G</td>
+          <td class="<%= rating_to_css(general_rating) %>">
+            <%= "%0.1f" % general_rating %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="movie-card-top-title">
+      <%= link_to @movie do %>
+          <%= @movie.title.force_encoding('utf-8') %>
+          <%= "(" + @movie.year.to_s + ")" if @movie.year %>
+          <%= twin_rating.rating if twin_rating %>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="movie-card-poster">
+    <%= link_to @movie do %>
+
+        <%= image_tag @movie.image_url || "", :class => "poster" if @movie.image_url %>
+    <% end %>
+    <div class="movie-card-poster-over">
+
+      <div class="movie-card-poster-over rating">
+        <%= render :partial => 'user_votes/rating_small_tag',
+                   :locals => {:type => :vote, :user_vote => user_vote,
+                               :movie_id => @movie.id}
+        %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

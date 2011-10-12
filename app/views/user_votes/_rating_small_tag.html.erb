@@ -1,0 +1,35 @@
+<%
+   rate = 0
+   split = 1
+   def_options = {}
+   case type.to_s
+       when 'twin'
+           split = 10
+           def_options[:disabled] = "disabled"
+           rate = personal_rating.best_rating if personal_rating
+       when 'global'
+           split = 10
+           def_options[:disabled] = "disabled"
+           rate = movie.votes_rating
+       when 'vote'
+           split = 2
+           rate = user_vote.rating
+   end
+   split = 2
+
+   def_options[:class] ="auto-submit-star {split:#{split}}"
+   rate = rate.ceil if rate
+%>
+
+<%= form_tag({:controller => :user_votes, :action => :vote}, :remote => true) do %>
+
+    <%= hidden_field_tag :movie_id, movie_id %>
+    <% (1..10).each do |num| %>
+        <% options = def_options.clone
+           options[:checked] = 'checked' if num == rate
+           options[:title] = "test"
+        %>
+
+        <%= radio_button_tag :rating, "#{num}", false, options %>
+    <% end %>
+<% end %>

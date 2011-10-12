@@ -1,0 +1,15 @@
+<% content_for :filter do %>
+    <td>
+      Your twin level:
+      <br/><%= filter_link params, '1', :level, '1' %>
+      <%= filter_link params, '2', :level, '2' %>
+      <%= filter_link params, '3', :level, '3' %>
+      <br/><%= filter_link params, '4', :level, '4' %>
+      <%= filter_link params, '5', :level, '5' %>
+      <%= filter_link params, '6', :level, '6' %>
+      <br/><%= filter_link params, '7', :level, '7' %>
+      <%= filter_link params, '8', :level, '8' %>
+      <%= filter_link params, '9', :level, '9' %>
+      <br/><%= filter_link params, 'All', :level, 'all' %>
+    </td>
+<% end %>

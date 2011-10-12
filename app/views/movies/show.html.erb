@@ -1,0 +1,144 @@
+<% title @movie.title %>
+
+<div class="width_normal">
+  <% if is_admin? %>
+      <div id="admin_filter" class="content_box">
+
+        <%= link_to 'TMDB', detail_movie_path(@movie), :method => :post %>
+        <%= link_to "UVotes", update_rating_votes_movie_path(@movie), :method => :post %>
+
+        <% if logged_in? %>
+            <div class="nav_right">
+
+              <%= link_to 'Edit', edit_movie_path(@movie) %>
+              <%= link_to 'Destroy', @movie, :confirm => 'Are you sure?', :method => :delete %>
+              <%= link_to 'Back', movies_path %>
+            </div>
+        <% end %>
+
+
+      </div>
+  <% end %>
+</div>
+
+<div class="width_normal">
+  <div id="md-left-panel">
+    <div id="md-poster" class="content_box">
+      <div class="md-poster-joint"></div>
+
+      <div class="content">
+        <%= image_tag @movie.image_url, :class => "poster" if @movie.image_url %>
+      </div>
+    </div>
+
+    <% if current_user %>
+        <div id="md-lists" class="content_box">
+          <div class="md-poster-joint"></div>
+          <div id="movie_list_list" class="content">
+            <%= render "movie_lists/movie" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+  <div id="md-about" class="content_box">
+    <p id="notice"><%= notice %></p>
+
+    <div id="movie-right-panel">
+      <%= render :partial => 'rating_detailed' %>
+
+
+      <div class="movie-twin-rating">
+        <%= render :partial => 'personal_ratings/levels' %>
+      </div>
+    </div>
+
+    <div id="title">
+      <h1><%= @movie.title %>&nbsp(<%= @movie.year %>)</h1>
+    </div>
+
+    <div id="genres">
+      <% if @movie.genres.size > 0 %>
+          <% @movie.genres.each_with_index do |g, i| %>
+              <%= link_to h(g.name), g %><%= ', ' if i < @movie.genres.size - 1 %>
+          <% end %>
+          <br/>
+      <% else %>
+          Does not have any genres.<br/>
+      <% end %>
+      <%= "#{@movie.runtime} minutes" if @movie.runtime %>
+      <%= link_to "IMDB", "http://www.imdb.com/title/#{@movie.imdb_id}" if @movie.imdb_id %>
+      <%= link_to "TMDB", "http://www.themoviedb.org/movie/#{@movie.tmdb_id}" if @movie.tmdb_id %>
+      <%= link_to "IsoHunt", "http://isohunt.com/torrents/?ihq=#{@movie.title}" %>
+      <%= link_to "TorrentButler", "http://torrentbutler.eu/#{@movie.tmdb_id}-#{@movie.title.parameterize}" if @movie.tmdb_id %>
+    </div>
+
+    <div id="actors">
+      <% @movie.people.actors.each do |p| %>
+        <%= link_to h(p.name), p %>
+      <% end %>
+    </div>
+
+    <div id="synopsis"><%= @movie.description %> </div>
+
+
+    <% if @movie.trailer_url %>
+        <!--<iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/p4ebtj1jR7c" frameborder="0" allowfullscreen></iframe>-->
+        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="400" src="<%= @movie.trailer_url %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+
+
+
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <hr/>
+
+    below is the test stuff
+    <br/>
+
+    <div id="ratings">
+      <table>
+        <tr>
+          <td class="site">Our Web</td>
+          <td class="web_rating">
+            <div class="r5" style="width:<%= MoviesHelper.get_rating_percent(@movie,5) %>%"></div>
+            <div class="r4" style="width:<%= MoviesHelper.get_rating_percent(@movie,4) %>%"></div>
+            <div class="r3" style="width:<%= MoviesHelper.get_rating_percent(@movie,3) %>%"></div>
+            <div class="r2" style="width:<%= MoviesHelper.get_rating_percent(@movie,2) %>%"></div>
+            <div class="r1" style="width:<%= MoviesHelper.get_rating_percent(@movie,1) %>%"></div>
+          </td>
+          <td class="votes">
+            <%= @movie.votes_rating_total %> -
+            <%= "%0.1f%%" % @movie.votes_rating if @movie.votes_rating %>
+          </td>
+        </tr>
+        <tr>
+          <td class="site">TMDB</td>
+          <td class="web_rating">
+            <div class="r5" style="width:<%= MoviesHelper.get_rating_percent_tmdb(@movie,2) %>%"></div>
+            <div class="r1" style="width:<%= MoviesHelper.get_rating_percent_tmdb(@movie,1) %>%"></div>
+          </td>
+          <td class="votes">
+            <%= @movie.tmdb_votes %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div class="rating-picker">
+      <div class="scale">
+        <div class="actual">
+
+        </div>
+      </div>
+    </div>
+
+    <br/><%= "best rating: #{@pr.best_rating} " + RatingHelper.rating_to_string(@pr.best_rating) if @pr %>
+    <br/><%= "best rating votes level: #{@pr.best_rating_votes_level}" if @pr %>
+    <br/><%= "best rating order: #{@pr.best_rating_order}" if @pr %>
+    <br/><%= "total votes: #{@pr.total_votes}" if @pr %>
+
+  </div>
+
+
+</div>

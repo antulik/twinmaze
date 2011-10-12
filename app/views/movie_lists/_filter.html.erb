@@ -1,0 +1,8 @@
+<% content_for :filter do %>
+    <td>
+      Type:
+      <br/><%= filter_link params, 'Opened', :list_type, 'opened' %>
+      <br/><%= filter_link params, 'Closed', :list_type, 'closed' %>
+      <br/><%= filter_link params, 'All', :list_type, 'all' %>
+    </td>
+<% end %>

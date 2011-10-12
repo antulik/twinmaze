@@ -1,0 +1,120 @@
+<div class="width_normal">
+  <% if is_admin? %>
+      <div id="admin_filter" class="content_box">
+
+        <%= link_to "Update Tw", update_twins_twin_path(@user), :method => :post %>
+        <%= link_to "Update PR", update_personal_ratings_twin_path(@user), :method => :post %>
+        <%= link_to "Update Genres", update_genres_twin_path(@user), :method => :post %>
+
+      </div>
+  <% end %>
+</div>
+
+<div class="width_normal">
+
+  <div id="md-left-panel">
+    <div id="md-poster" class="content_box">
+      <div class="md-poster-joint"></div>
+
+      <div class="content">
+        <div id="user_identicon">
+          <span>?</span>
+        </div>
+      </div>
+    </div>
+
+    <% if @user == current_user %>
+        <div id="md-lists" class="content_box">
+          <div class="md-poster-joint"></div>
+          <div id="movie_list_list" class="content">
+            <%= link_to "Lists", :controller => :movie_lists, :search => @user.username %>
+
+            <%= link_to_if @user == current_user, "New list", new_movie_list_path %>
+
+            <br/>
+            <% @user.movie_lists.each do |list| %>
+                <%= link_to list.name, movie_list_path(list) %> <br/>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+
+  <div id="tp-info" class="content_box">
+    <h1><%= @user.username %></h1>
+
+    <div id="twin-right-panel">
+      <div class="twin-level">
+        <%= render :partial => 'twins/levels' %>
+      </div>
+    </div>
+
+    <%= link_to ratings_twin_path(@user) do %>
+        Rated <%= @user.user_votes.count %> movies.
+    <% end %>
+    <br/>
+
+
+    <div id="top-twins">
+      <% if @top_twins %>
+          Top twins:
+          <br/>
+          <% @top_twins.each do |twin| %>
+              <%= render :partial => 'twins/card', :locals => {:twin => twin} %>
+          <% end %>
+
+
+      <% else %>
+          Doesn't have the best twins yet.
+      <% end %>
+    </div>
+    
+
+    <b>Top genres:</b>
+    <table>
+      <thead>
+      <tr>
+        <td>Genre</td>
+        <td>Movies watched</td>
+        <td>Avg rating</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @genres.each do |ug| %>
+          <tr>
+            <td><%= link_to ug.genre.name, ug.genre %></td>
+            <td><%= ug.movies_count%></td>
+            <td><%= "%0.1f" % ug.avg_rating %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    Below is the test stuff:
+    <br/>
+
+    ++++++++++++++++++++++++++++++++++++++++++
+
+    <br/>Reverse users:
+    <br/>
+    <%= @user.reverse_users.first.username if @user.reverse_users.first %>
+
+    <br/>
+
+    <% if @user.best_user_twins %>
+        Best twin is
+        <b><%= link_to @user.best_user_twins.twin.username, twin_path(@user.best_user_twins.twin) %></b> with
+        <b><%= "%0.1f%" % @user.best_user_twins.percent %></b> match
+        over <%= @user.best_user_twins.movies_matched %> movies.
+
+    <% end %>
+  </div>
+
+</div>

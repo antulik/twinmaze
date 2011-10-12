@@ -1,0 +1,31 @@
+<h1>Listing user_twins</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Twin</th>
+    <th>Rating</th>
+    <th>Percent</th>
+    <th>Movies matched</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_twins.each do |user_twin| %>
+  <tr>
+    <td><%= user_twin.user_id %></td>
+    <td><%= user_twin.twin_id %></td>
+    <td><%= user_twin.rating %></td>
+    <td><%= user_twin.percent %></td>
+    <td><%= user_twin.movies_matched %></td>
+    <td><%= link_to 'Show', user_twin %></td>
+    <td><%= link_to 'Edit', edit_user_twin_path(user_twin) %></td>
+    <td><%= link_to 'Destroy', user_twin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User twin', new_user_twin_path %>

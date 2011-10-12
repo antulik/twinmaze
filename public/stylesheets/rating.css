@@ -1,0 +1,180 @@
+#rating_sum {
+    height   : 15px;
+    width    : 100px;
+    position : relative;
+    float    : right;
+    top      : 0;
+    right    : 0;
+}
+
+#rating_sum div {
+    height      : 100%;
+    padding     : 0;
+    margin      : 0;
+    float       : left;
+    border-left : 1px solid black;
+}
+
+.web_rating div {
+    height  : 100%;
+    padding : 0;
+    margin  : 0;
+    float   : left; /*border-left: 1px black solid;*/
+}
+
+#ratings table {
+/*width:100%*/
+    border-spacing : 0px;
+    padding        : 10px 0px 10px 0px;
+}
+
+#ratings tr {
+    height : 25px;
+
+}
+
+#ratings td {
+    height : 100%;
+}
+
+#ratings .site {
+    padding        : 2px 5px 2px 2px;
+    vertical-align : middle;
+}
+
+#ratings .votes {
+    padding-left   : 5px;
+    vertical-align : middle;
+}
+
+.web_rating {
+    width  : 70%;
+    border : 1px black solid;
+}
+
+.r5 {
+    background : #6dcd3f;
+}
+
+.r4 {
+    background : #9acd32;
+}
+
+.r3 {
+    background : #FDD400;
+}
+
+.r2 {
+    background : orange;
+}
+
+.r1 {
+    background : #EE001A;
+}
+
+.r_best {
+    background: #1e90ff;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++ */
+
+.movie-rating {
+}
+
+div.movie-rating {
+    width : 180px; /*float : right;*/
+}
+
+table.movie-rating {
+    border-spacing : 0;
+    border         : black solid 1px;
+    width          : 100%;
+    text-align     : center;
+
+}
+
+table.movie-rating td {
+    border : black solid 1px;
+}
+
+table.movie-rating tr {
+    height : 27px;
+}
+
+td.movie-rating-type, td.movie-rating-rating {
+    width : 25px;
+
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++ */
+
+div.movie-twin-rating {
+/*height : 300px;*/
+    width       : 100%; /*border : solid black 1px;*/
+    overflow    : visible;
+    padding-top : 10px; /*float:right;*/
+}
+
+div.mtr-image {
+    height         : 50px;
+    width          : 50px;
+    position       : relative;
+    box-shadow     : 0 0 5px gray;
+    margin-bottom  : 5px;
+    border         : black solid 1px;
+    text-align     : center;
+    color          : gray;
+    vertical-align : middle;
+}
+
+div.mtr-image-odd {
+    background : #f5f5f5;
+    float      : left; /*margin-left : 5px;*/
+}
+
+div.mtr-image-even {
+    background : #f5f5f5;
+    float      : right; /*margin-right : 5px;*/
+}
+
+/* ++++++++ */
+
+div.mtr-line {
+    height     : 22px;
+    text-align : center;
+    position   : relative;
+    margin     : 0 51px 5px 51px;
+    border     : solid black 1px;
+}
+
+div.mtr-line-odd {
+    background  : #f5f5f5;
+    box-shadow  : 6px 0 5px gray;
+    border-left : 0; /*margin-right:62px;*/
+}
+
+div.mtr-line-even {
+    background   : #f5f5f5;
+    box-shadow   : -6px 0 5px gray;
+    border-right : 0; /*margin-left:62px;*/
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++ */
+
+.scale, .actual {
+    background : url("/images/rating_picker.png") no-repeat scroll -1px -40px transparent;
+
+}
+
+.scale {
+    height : 31px;
+    width  : 111px;
+}
+
+.actual {
+    height              : 18px;
+    width               : 70px;
+    background-position : -1px -80px; /*left:0;*/
+/*position:absolute;*/
+/*top:0;*/
+}

@@ -1,0 +1,21 @@
+<h1>Listing ex_tmdb_movies</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ex_tmdb_movies.each do |ex_tmdb_movie| %>
+  <tr>
+    <td><%= link_to 'Show', ex_tmdb_movie %></td>
+    <td><%= link_to 'Edit', edit_ex_tmdb_movie_path(ex_tmdb_movie) %></td>
+    <td><%= link_to 'Destroy', ex_tmdb_movie, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ex tmdb movie', new_ex_tmdb_movie_path %>

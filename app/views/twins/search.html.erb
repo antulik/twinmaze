@@ -1,0 +1,24 @@
+<div class="width_normal">
+
+  <%= render 'filter' %>
+
+
+  <div id="navigation">
+    <div class="nav_left">
+      <%= will_paginate(@users) %>
+    </div>
+
+  </div>
+
+  <table>
+    <tr>
+      <th>User</th>
+    </tr>
+
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.username, twin_path(user) %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,254 @@
+#poster {
+    float : left;
+    width : 185px;
+}
+
+#title {
+    border-bottom : 1px solid #cccccc;
+    padding       : 10px 15px 5px 15px;
+    overflow      : hidden;
+}
+
+#trailer {
+    line-height : 18px;
+    padding     : 10px 15px;
+}
+
+#meta, #director, #cast, #ratings, #synopsis, #genres {
+    border-bottom : 1px solid #cccccc;
+    line-height   : 23px;
+    overflow      : hidden;
+    padding       : 0 15px;
+}
+
+.width_normal #movies {
+    width  : 860px;
+    margin : 0 auto;
+}
+
+div.movie-card-top-rating {
+    float  : right;
+    width  : 50px;
+    height : 50px;
+}
+
+table.movie-card-top-rating {
+/*border: black solid 1px;*/
+    border-spacing : 0;
+    width          : 100%;
+    height         : 100%;
+    text-align     : center;
+    vertical-align : middle;
+
+    font-size      : 16px; /*font-weight     : bold;*/
+/*line-height     : 16px;*/
+}
+
+table.movie-card-top-rating td {
+/*border: black solid 1px;*/
+    border-bottom  : #d3d3d3 solid 2px;
+    border-left    : #d3d3d3 solid 2px;
+    width          : 50%;
+    height         : 50%;
+    vertical-align : middle;
+    text-align     : center;
+}
+
+.movie-card-top {
+/*height   : 50px;*/
+/*position : relative;*/
+    margin   : 0;
+    overflow : hidden;
+    padding  : 0 0 5px;
+
+}
+
+.movie-card-top-title {
+    overflow       : hidden;
+    height         : 100%;
+    padding        : 0 2px 0 5px;
+    vertical-align : middle;
+    text-align     : center;
+}
+
+.movie-card-top-title a {
+    font-size       : 13px;
+    font-weight     : bold;
+    line-height     : 16px;
+    text-decoration : none;
+    vertical-align  : middle;
+
+}
+
+.movie-card-poster {
+/*max-height     : 400px;*/
+    position       : relative;
+    margin         : 0;
+    text-align     : center;
+    vertical-align : middle;
+    width          : 100%;
+    overflow       : visible;
+
+}
+
+img.poster {
+    background : url("http://torrentbutler.eu/images/sprite.png?20110201") no-repeat scroll 0 -740px transparent; /*height      : 100%;*/
+    width      : 100%;
+    box-shadow : 0 0 10px black;
+}
+
+.movie-card-poster-over {
+    height  : 100%;
+    width   : 100%;
+    display : none;
+}
+
+.movie-card-poster-over .rating {
+    width            : 100%;
+    height           : 25px;
+    position         : absolute;
+    top              : 0px;
+    margin-top       : auto;
+    background-color : rgba(255, 255, 255, 1);
+    overflow         : hidden;
+    padding-top      : 10px;
+    display          : block;
+
+}
+
+.md-left-box {
+
+}
+
+#md-left-panel {
+    position : relative;
+    float    : left;
+    overflow : visible; /*left:0;*/
+/*top:0;*/
+/*margin-right:auto;*/
+/*margin-bottom:auto;*/
+    width    : 210px;
+    height   : auto; /*background-color:red;*/
+    padding  : 0;
+    margin   : 0;
+}
+
+#md-left-panel .content_box {
+    width    : 100%;
+    position : relative;
+    padding  : 0 10px 0 0;
+    margin   : 0 0 20px 0;
+    overflow : visible; /*float :left;*/
+}
+
+#md-left-panel .content {
+    padding  : 10px;
+    overflow : hidden;
+}
+
+#md-about.content_box {
+    width       : 650px;
+    margin-left : 220px; /*position    : absolute;*/
+}
+
+.movie-card {
+    float    : left;
+    height   : 360px;
+    margin   : 5px;
+    position : relative;
+    width    : 200px;
+    padding  : 0;
+}
+
+.md-poster-joint {
+    height           : 105%;
+    background-color : white;
+    width            : 6px;
+    position         : absolute;
+    float            : right;
+    right            : -6px;
+    margin           : auto 0 auto 0;
+}
+
+#movie-right-panel {
+    float        : right;
+    position     : relative;
+    padding-left : 10px;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++ */
+
+div.ml-image {
+    height         : 300px;
+    width          : 210px;
+    position       : relative;
+    box-shadow     : 0 0 5px gray;
+    margin-bottom  : 5px;
+    border         : black solid 1px;
+    text-align     : center;
+    color          : gray;
+    vertical-align : middle;
+    overflow       : hidden;
+}
+
+div.ml-image .poster_container {
+    padding : 10px;
+    width   : 185px; /*overflow:hidden;*/
+}
+
+div.ml-image-odd {
+    background : #f5f5f5;
+    float      : left; /*margin-left : 5px;*/
+}
+
+div.ml-image-even {
+    background : #f5f5f5;
+    float      : right; /*margin-right : 5px;*/
+}
+
+/* ++++++++ */
+
+div.ml-line {
+    height   : 145px;
+    position : relative;
+
+    border   : solid black 1px;
+    padding  : 0 10px 10px 10px;
+    overflow : visible;
+    margin   : 0 211px 10px 211px;
+}
+
+div.ml-line-odd {
+    background   : #f5f5f5;
+    box-shadow   : 6px 0 5px gray;
+    border-left  : 0; /*margin-right:62px;*/
+    text-align   : left;
+    margin-right : 226px;
+}
+
+div.ml-line-even {
+    background   : #f5f5f5;
+    box-shadow   : -6px 0 5px gray;
+    border-right : 0; /*margin-left:62px;*/
+    text-align   : right;
+    margin-left  : 226px;
+}
+
+div.movie-line-top-rating {
+    width  : 50px;
+    height : 50px;
+}
+
+.ml-line-even div {
+
+}
+
+.ml-line-even div {
+    float       : right;
+    margin-left : 5px;
+}
+
+.ml-line-odd div {
+    float        : left;
+    margin-right : 5px;
+}
